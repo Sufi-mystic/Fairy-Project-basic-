@@ -1,6 +1,6 @@
 var starImg,bgImg;
 var star, starBody;
-//create variable for fairy sprite and fairyImg
+//variable for fairy sprite and fairyImg
 var fairy,fairyimg;
 
 const Engine = Matter.Engine;
@@ -20,9 +20,9 @@ function preload()
 function setup() {
 	createCanvas(700,650);
 
-	//write code to play fairyVoice sound
+	//code to play fairyVoice sound
 	fairySound.play();
-	//create fairy sprite and add animation for fairy
+	//creating fairy sprite and adding animation for fairy
 	fairy = createSprite(100,500,500,20);
 	fairy.addAnimation("flyingfairy",fairyimg);
 	fairy.scale = 0.3;
@@ -36,7 +36,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:true});
+	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:false});
 	World.add(world, starBody);
 	
 	Engine.run(engine);
@@ -67,7 +67,7 @@ function keyPressed() {
 		Matter.Body.setStatic(starBody,false); 
 	}
 
-	//writw code to move fairy left and right
+	//code to move fairy left and right
 
 	if (keyCode === RIGHT_ARROW) {
 		fairy.x = fairy.x +100;
